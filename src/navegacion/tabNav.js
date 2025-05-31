@@ -15,6 +15,7 @@ export default class TabNav extends Component{
             <Tab.Navigator>
                     <Tab.Screen name = "Mi perfil" component={MiPerfil} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "feed-rocket" size= {24} color= "black"/>}}/>
                     <Tab.Screen name='Crear Post' component={crearPost} /> 
+                 
                     
 
             </Tab.Navigator>
