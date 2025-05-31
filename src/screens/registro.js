@@ -1,6 +1,6 @@
 import {Text, View, TouchableOpacity, TextInput} from 'react-native'
 import {Component} from 'react'
-import {db, auth, storage} from "../components/firebase/config";
+import {db, auth, storage} from "../firebase/config";
 import TabNav from "../navegacion/tabNav"
 
 class Registro extends Component {

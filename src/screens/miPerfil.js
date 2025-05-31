@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import Usuario from '../components/Usuario'; 
+import { auth, db } from '../firebase/config'
 
 class MiPerfil extends Component {
     constructor(props) {
@@ -9,9 +10,23 @@ class MiPerfil extends Component {
             usuario: [] 
         };
     }
+    componentDidMount(){
+        db.collection('users').orderBy('createdAt', 'desc').onSnapshot((docs) => {
+          let arrDocs = [];
+          docs.forEach((doc) => arrDocs.push({
+            id: doc.id,
+            data: doc.data()
+          }))
+          this.setState({
+            usuarios: arrDocs
+          }, () => console.log('este es el state', this.state))
+        })
+      }
 
     logout() {
-        console.log('Sesión cerrada');
+        auth.signOut()
+        .then(()=> this.props.navigation.navigate('Register'))
+        .catch(err => console.log('err en signout', err))
     }
 
     render() {
@@ -24,7 +39,7 @@ class MiPerfil extends Component {
                 />
 
                 <TouchableOpacity onPress={() => this.logout()}>
-                    <Text>Cerrar Sesión</Text>
+                    <Text>Cerrar sesion</Text>
                 </TouchableOpacity>
             </View>
         );
