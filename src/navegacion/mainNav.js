@@ -5,8 +5,8 @@ import Registro from "../screens/registro"
 import TabNav from "./tabNav"
 import Home from '../screens/home'
 
-
 const Stack = createNativeStackNavigator()
+
 export default class MainNav extends Component{
     render(){
         return(
