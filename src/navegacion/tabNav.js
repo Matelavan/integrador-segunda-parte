@@ -4,6 +4,7 @@ import {Octicons} from "@expo/vector-icons"
 import {AntDesign} from "@expo/vector-icons"
 import MiPerfil from "../screens/miPerfil"
 import Registro from '../screens/registro'
+import Home from '../screens/home'
 
 const Tab = createBottomTabNavigator()
 
@@ -12,8 +13,11 @@ export default class TabNav extends Component{
         return(
             <Tab.Navigator>
                 <Tab.Screen name = "registro" component = {Registro} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "feed-rocket" size= {24} color= "black"/>}}/>
-                <Tab.Screen name = "Mi perfil" component = {MiPerfil} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "feed-rocket" size= {24} color= "black"/>}}/> 
+                <Tab.Screen name = "Mi perfil" component = {MiPerfil} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "feed-rocket" size= {24} color= "black"/>}}/>
+                <Tab.Screen name = "home" component = {Home} options = {{headerShown: false, tabBarIcon: () => <AntDesign name= "home" size= {24} color= "black"/>}}/>
             </Tab.Navigator>
         )
     }
 }
+
+// metemos home mi perfiil y cargar posteo

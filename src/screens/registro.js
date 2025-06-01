@@ -13,7 +13,11 @@ class Registro extends Component {
         }
     }
     componentDidMount(){
-this.props.navigation.navigate("TabNav")
+    auth.onAuthStateChanged( user => {
+            if(user != null){
+                this.props.navigation.navigate('TabNav')
+            }
+        })
     }
     redireccionar(){
         this.props.navigate("login")

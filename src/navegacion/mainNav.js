@@ -14,9 +14,12 @@ export default class MainNav extends Component{
                 <Stack.Navigator>
                     <Stack.Screen name = "registro" component = {Registro} options = {{headerShown: false}}/> 
                     <Stack.Screen name = "TabNav" component = {TabNav} options = {{headerShown: false}}/> 
-                    <Stack.Screen name = "home" component = {Home} options = {{headerShown: false}}/>
+                   
                 </Stack.Navigator>
             </NavigationContainer>
         )
     }
 }
+
+//el tabnav tiene que aparecer cuando estas logueado 
+// tiene que estar el login dentro del stack navigator

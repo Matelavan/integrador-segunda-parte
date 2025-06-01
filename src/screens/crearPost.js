@@ -29,6 +29,8 @@ class CrearPost extends Component {
                     description: description,
                     createdAt: Date.now(),
                     username: username,
+                    likes: [],
+            
                 
                 })
                 .then(() => {
