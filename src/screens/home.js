@@ -4,7 +4,7 @@ import { onSnapshot, collection, query, orderBy, updateDoc, doc } from 'firebase
 import { db } from '../firebase/config';
 import Post from '../components/Post';
 
-import LikeButton from '../components/LikeButton';
+//import LikeButton from '../components/LikeButton';
 
 class Home extends Component {
   constructor(props) {
