@@ -7,19 +7,16 @@ class MiPerfil extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            usuario: [] 
+            datosUsuario: '',
+
         };
     }
     componentDidMount(){
-        db.collection('users').orderBy('createdAt', 'desc').onSnapshot((docs) => {
-          let arrDocs = [];
-          docs.forEach((doc) => arrDocs.push({
-            id: doc.id,
-            data: doc.data()
-          }))
-          this.setState({
-            usuarios: arrDocs
-          }, () => console.log('este es el state', this.state))
+        db.collection('users').where('mail', '==', auth.currentUser.email)
+        .onSnapshot(data => {
+            data.forEach(doc => {
+                this.setState({datosUsuario: doc.data(), idUsuario: doc.id })
+            });
         })
       }
 

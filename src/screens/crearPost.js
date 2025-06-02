@@ -8,8 +8,19 @@ class CrearPost extends Component {
         super(props)
         this.state = {
             description: '',
-            username: ''
+            
         }
+    }
+    componentDidMount() {
+        auth.onAuthStateChanged((user) => {
+            if (user == null) {
+                console.log("no hay nadie logueado ")
+                this.props.navigation.navigate('login')
+    
+            }
+    
+            })
+
     }
 
     crearPost() {
@@ -18,17 +29,13 @@ class CrearPost extends Component {
 
         if (
             email &&
-            description !== '' &&
-            username !== '' &&
-            username.length > 3 &&
-            email.includes('@')
+            description !== ''
         ) {
             db.collection('posts')
                 .add({
                     owner: email,
                     description: description,
                     createdAt: Date.now(),
-                    username: username,
                     likes: [],
             
                 
@@ -46,13 +53,10 @@ class CrearPost extends Component {
                 <TextInput
                     value={this.state.description}
                     onChangeText={(text) => this.setState({ description: text })}
-                    style={styles.input}
+                    placeholder="Crea tu posteo:"
                 />
-                <TextInput
-                    value={this.state.username}
-                    onChangeText={(text) => this.setState({ username: text })}
-                    style={styles.input}
-                />
+                
+    
                 <TouchableOpacity onPress={() => this.crearPost()}>
                     <Text>Crear Post</Text>
                 </TouchableOpacity>
