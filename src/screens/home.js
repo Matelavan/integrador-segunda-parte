@@ -50,25 +50,4 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#fff',
   },
-  postContainer: {
-    marginBottom: 20,
-    padding: 16,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 12,
-  },
-  author: {
-    fontWeight: 'bold',
-  },
-  content: {
-    marginTop: 8,
-    marginBottom: 8,
-  },
-  likes: {
-    fontSize: 12,
-    color: '#666',
-  },
-  likeButton: {
-    color: '#007BFF',
-    marginTop: 8,
-  },
 });

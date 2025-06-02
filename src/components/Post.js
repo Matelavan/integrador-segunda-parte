@@ -59,12 +59,12 @@ class Post extends Component {
 
     render() {
         return (
-            <View>
-                <Text>{this.props.post.owner}</Text>
-                <Text>{this.props.post.description}</Text>
-                <Text>Likes: {this.props.post.likes.length}</Text>
+            <View style={styles.postContainer}>
+                <Text style={styles.author}>{this.props.post.owner}</Text>
+                <Text style={styles.content}>{this.props.post.description}</Text>
+                <Text style={styles.likes}>Likes: {this.props.post.likes.length}</Text>
                 <TouchableOpacity onPress={() => this.Likear()}>
-                  {/* <Text style={styles.likeButton}>{this.state.label}</Text>  */}
+                <Text style={styles.likeButton}>{this.state.label}</Text>
                 </TouchableOpacity>
                 {this.props.perfil ? (
         <TouchableOpacity onPress={() =>this.props.borrarPosteo(this.props.id)}>
@@ -78,3 +78,26 @@ class Post extends Component {
 
 export default Post;
 
+const styles = StyleSheet.create({
+  postContainer: {
+    marginBottom: 20,
+    padding: 16,
+    backgroundColor: '#f2f2f2',
+    borderRadius: 12,
+  },
+  likeButton: {
+    color: '#007BFF',
+    marginTop: 8,
+  },
+  author: {
+    fontWeight: 'bold',
+  },
+   content: {
+    marginTop: 8,
+    marginBottom: 8,
+  },
+   likes: {
+    fontSize: 12,
+    color: '#666',
+  },
+})
