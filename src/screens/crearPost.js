@@ -45,16 +45,18 @@ class CrearPost extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <TextInput
+                 <View style={styles.box}>
+                <TextInput style={styles.input}
                     value={this.state.description}
                     onChangeText={(text) => this.setState({ description: text })}
                     placeholder="Crea tu posteo"
                 />
                 
     
-                <TouchableOpacity onPress={() => this.crearPost()}>
-                    <Text>Crear Post</Text>
+                <TouchableOpacity style={styles.button} onPress={() => this.crearPost()}>
+                    <Text style={styles.buttonText}>Crear Post</Text>
                 </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -64,11 +66,44 @@ class CrearPost extends Component {
 export default CrearPost;
 
 const styles = StyleSheet.create({
-    container: {
-     justifyContent: 'space-between',
-     backgroundColor: 'rgba(255,0,0,0.5)',
-     alignItems: 'center',
-     fontSize: 160,
-   },
- }) 
- 
+  container: {
+    flex: 1,
+    backgroundColor: '#F0FCFD', 
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  box: {
+    width: '40%',
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#dbdbdb',
+    backgroundColor: '#fafafa',
+    padding: 12,
+    borderRadius: 6,
+    marginBottom: 12,
+    fontSize: 16,
+    height: 50,
+    textAlignVertical: 'top'
+  },
+  button: {
+    backgroundColor: '#3897f0',
+    paddingVertical: 12,
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 16,
+    minHeight: 20
+  },
+});

@@ -47,15 +47,17 @@ class MiPerfil extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.state.datosUsuario.nombre}</Text>
-                <Text>{this.state.datosUsuario.mail}</Text>
+            <View style={styles.box}>
+                <Text style={styles.userName}>{this.state.datosUsuario.nombre}</Text>
+                <Text style={styles.userEmail}>{this.state.datosUsuario.mail}</Text>
+            </View>
                 <FlatList
                     data={this.state.posteos}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({item}) => <Post perfil={true} borrarPosteo={(idPosteo) => this.borrarPosteo(idPosteo)} post={item.data} id={item.id}/>}
                 />
-                <TouchableOpacity onPress={() => this.logout()}>
-                    <Text>Cerrar sesion</Text>
+                <TouchableOpacity style={styles.logoutButton} onPress={() => this.logout()}>
+                    <Text style={styles.logoutButtonText}>Cerrar sesion</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -68,6 +70,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: '#F0FCFD',
+  },
+  box: {
+    backgroundColor: '#fff', 
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 10,
+    alignSelf: 'center',
+    width: '20%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  userName: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 4,
+  },
+  userEmail: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 16,
+  },
+  logoutButton: {
+    backgroundColor: '#3897f0',
+    paddingVertical: 12,
+    borderRadius: 6,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  logoutButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 16,
   },
 });

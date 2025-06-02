@@ -1,4 +1,4 @@
-import {Text, View, TouchableOpacity, TextInput} from 'react-native'
+import {Text, View, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
 import {Component} from 'react'
 import {db, auth, storage} from "../firebase/config";
 
@@ -45,15 +45,64 @@ class Login extends Component {
     render(){
         console.log("estoy en el login")
         return(
-            <View>
-                <TextInput style = "" placeholder = "Mail" onChangeText = {(Text) => this.setState({mail : Text})} value = {this.state.mail}></TextInput>
-                <TextInput style = "" placeholder = "Contraseña" onChangeText = {(Text) => this.setState({contraseña : Text})} value = {this.state.contraseña}></TextInput>
-                <TouchableOpacity onPress = {() => this.OnSubmit( this.state.mail, this.state.contraseña)}><Text>Loguearse</Text></TouchableOpacity>
-                {this.state.error !== ""? <Text>{this.state.error}</Text>: <Text></Text>}   
-                <Text>No tenes cuenta?</Text>   
-                <TouchableOpacity onPress = {() => this.redireccionar()}><Text>Registrarse</Text></TouchableOpacity>        
+            <View style={styles.container}>
+                <TextInput style={styles.input} placeholder = "Mail" onChangeText = {(Text) => this.setState({mail : Text})} value = {this.state.mail}></TextInput>
+                <TextInput style={styles.input} placeholder = "Contraseña" onChangeText = {(Text) => this.setState({contraseña : Text})} value = {this.state.contraseña}></TextInput>
+                <TouchableOpacity style={styles.button} onPress = {() => this.OnSubmit( this.state.mail, this.state.contraseña)}><Text style={styles.buttonText}>Loguearse</Text></TouchableOpacity>
+                {this.state.error !== ""? <Text style={styles.error}>{this.state.error}</Text>: <Text></Text>}   
+                <Text style={styles.text}>No tenes cuenta?</Text>   
+                <TouchableOpacity onPress = {() => this.redireccionar()}><Text style={styles.link}>Registrarse</Text></TouchableOpacity>        
             </View>
         )
     }
 }
 export default Login
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 30,
+    backgroundColor: '#F0FCFD',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  input: {
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#dbdbdb',
+    backgroundColor: '#fafafa',
+    padding: 12,
+    borderRadius: 6,
+    marginBottom: 12,
+    fontSize: 14,
+  },
+  button: {
+    backgroundColor: '#3897f0',
+    paddingVertical: 12,
+    borderRadius: 6,
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 14,
+  },
+  error: {
+    color: 'red',
+    marginVertical: 10,
+    textAlign: 'center',
+    fontSize: 12,
+  },
+  text: {
+    fontSize: 12,
+    color: '#8e8e8e',
+    marginTop: 20,
+  },
+  link: {
+    color: '#3897f0',
+    fontWeight: '600',
+    marginTop: 5,
+  },
+});

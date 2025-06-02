@@ -71,7 +71,7 @@ class Post extends Component {
                 </TouchableOpacity>
                 {this.props.perfil ? (
         <TouchableOpacity onPress={() =>this.props.borrarPosteo(this.props.id)}>
-          <Text>Eliminar</Text>
+          <Text style={styles.deleteButton}>Eliminar</Text>
         </TouchableOpacity>
       ) : null}
 
@@ -85,12 +85,20 @@ const styles = StyleSheet.create({
   postContainer: {
     marginBottom: 20,
     padding: 16,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 12,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
   likeButton: {
     color: '#007BFF',
-    marginTop: 8,
+    marginTop: 8, 
+  },
+  deleteButton: {
+    color: 'red',
+    marginTop: 8, 
   },
   author: {
     fontWeight: 'bold',
