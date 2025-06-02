@@ -6,7 +6,7 @@ class Registro extends Component {
     constructor(props){
         super(props)
         this.state = {
-             nombre: "",
+            nombre: "",
             mail: "",
             contraseña: "",
             error: ""

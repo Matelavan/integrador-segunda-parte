@@ -6,7 +6,7 @@ class Login extends Component {
     constructor(props){
         super(props)
         this.state = {
-             nombre: "",
+            nombre: "",
             mail: "",
             contraseña: "",
             error: ""
@@ -29,7 +29,6 @@ class Login extends Component {
         {if(user) {
             this.props.navigation.navigate('TabNav')
         }}
-    
     )
     .catch((e) => {
         console.log(e)
@@ -39,11 +38,9 @@ class Login extends Component {
             alert('el usuario o pass no son correctos')
         }  else {
             this.setState({error: e.message})
-            console.log(this.state.error)
-            
-        }
-    })
-        
+            console.log(this.state.error)       
+            }
+        })
     }
     render(){
         console.log("estoy en el login")
@@ -51,7 +48,7 @@ class Login extends Component {
             <View>
                 <TextInput style = "" placeholder = "Mail" onChangeText = {(Text) => this.setState({mail : Text})} value = {this.state.mail}></TextInput>
                 <TextInput style = "" placeholder = "Contraseña" onChangeText = {(Text) => this.setState({contraseña : Text})} value = {this.state.contraseña}></TextInput>
-                <TouchableOpacity onPress = {() => this.OnSubmit( this.state.mail, this.state.contraseña)}><Text>Registrarse</Text></TouchableOpacity>
+                <TouchableOpacity onPress = {() => this.OnSubmit( this.state.mail, this.state.contraseña)}><Text>Loguearse</Text></TouchableOpacity>
                 {this.state.error !== ""? <Text>{this.state.error}</Text>: <Text></Text>}   
                 <Text>No tenes cuenta?</Text>   
                 <TouchableOpacity onPress = {() => this.redireccionar()}><Text>Registrarse</Text></TouchableOpacity>        

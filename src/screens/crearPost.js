@@ -7,22 +7,17 @@ class CrearPost extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            description: '',
-            
+            description: '',           
         }
     }
     componentDidMount() {
         auth.onAuthStateChanged((user) => {
             if (user == null) {
                 console.log("no hay nadie logueado ")
-                this.props.navigation.navigate('login')
-    
-            }
-    
+                this.props.navigation.navigate('login')    
+                }    
             })
-
-    }
-
+        }
     crearPost() {
         const email = auth.currentUser.email;
         const { description } = this.state;
@@ -46,7 +41,6 @@ class CrearPost extends Component {
                 .catch(err=> console.log('err:', err));
         }
     }
-
     render() {
         return (
             <View>

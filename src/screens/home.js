@@ -4,8 +4,6 @@ import { onSnapshot, collection, query, orderBy, updateDoc, doc } from 'firebase
 import { db } from '../firebase/config';
 import Post from '../components/Post';
 
-
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -30,12 +28,6 @@ class Home extends Component {
     })
 
   }
-
-
-
-
-  
-
   render() {
     return (
       <View style={styles.container}>

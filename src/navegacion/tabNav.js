@@ -12,12 +12,11 @@ export default class TabNav extends Component{
     render(){
         return(
             <Tab.Navigator>       
-                <Tab.Screen name = "crearPost" component = {CrearPost} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "feed-rocket" size= {24} color= "black"/>}}/>
-                <Tab.Screen name = "Mi perfil" component = {MiPerfil} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "feed-rocket" size= {24} color= "black"/>}}/>
+                <Tab.Screen name = "crearPost" component = {CrearPost} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "pencil" size= {24} color= "black"/>}}/>
+                <Tab.Screen name = "Mi perfil" component = {MiPerfil} options = {{headerShown: false, tabBarIcon: () => <Octicons name= "person" size= {24} color= "black"/>}}/>
                 <Tab.Screen name = "home" component = {Home} options = {{headerShown: false, tabBarIcon: () => <AntDesign name= "home" size= {24} color= "black"/>}}/>
             </Tab.Navigator>
         )
     }
 }
 
-// metemos home mi perfiil y cargar posteo

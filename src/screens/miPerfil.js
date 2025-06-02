@@ -9,7 +9,6 @@ class MiPerfil extends Component {
         this.state = {
             datosUsuario: '',
             posteos: []
-
         };
     }
     componentDidMount(){
@@ -32,8 +31,6 @@ class MiPerfil extends Component {
             }
         )
       }
-      
-
     logout() {
         auth.signOut()
         .then(()=> this.props.navigation.navigate('registro'))
@@ -44,7 +41,6 @@ class MiPerfil extends Component {
             .then((res) => console.log('se borro'))
             .catch(e => console.log(e))
     }
-
     render() {
         return (
             <View>
