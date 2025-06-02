@@ -85,30 +85,39 @@ const styles = StyleSheet.create({
   postContainer: {
     marginBottom: 20,
     padding: 16,
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-  },
-  likeButton: {
-    color: '#007BFF',
-    marginTop: 8, 
-  },
-  deleteButton: {
-    color: 'red',
-    marginTop: 8, 
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 6,
+    elevation: 3,
   },
   author: {
-    fontWeight: 'bold',
+    fontWeight: '600',
+    fontSize: 16,
+    color: '#333',
+    marginBottom: 4,
   },
-   content: {
+  content: {
+    fontSize: 15,
+    color: '#444',
     marginTop: 8,
     marginBottom: 8,
+    lineHeight: 22,
   },
-   likes: {
-    fontSize: 12,
-    color: '#666',
+  likes: {
+    fontSize: 13,
+    color: '#888',
   },
-})
+  likeButton: {
+    marginTop: 10,
+    color: '#1E90FF',
+    fontWeight: '500',
+  },
+  deleteButton: {
+    marginTop: 10,
+    color: '#FF4D4D',
+    fontWeight: '500',
+  },
+});
