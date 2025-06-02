@@ -60,13 +60,17 @@ class Post extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.author}>{this.props.post.owner}</Text>
-                <Text style={styles.content}>{this.props.post.description}</Text>
-                <Text style={styles.likes}>Likes: {this.props.post.likes.length}</Text>
+                <Text>{this.props.post.owner}</Text>
+                <Text>{this.props.post.description}</Text>
+                <Text>Likes: {this.props.post.likes.length}</Text>
                 <TouchableOpacity onPress={() => this.Likear()}>
-                    <Text style={styles.likeButton}>{this.state.label}</Text>
-
+                  {/* <Text style={styles.likeButton}>{this.state.label}</Text>  */}
                 </TouchableOpacity>
+                {this.props.perfil ? (
+        <TouchableOpacity onPress={() =>this.props.borrarPosteo(this.props.id)}>
+          <Text>Eliminar</Text>
+        </TouchableOpacity>
+      ) : null}
 
             </View>)
     }

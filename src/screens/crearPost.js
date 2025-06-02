@@ -25,7 +25,7 @@ class CrearPost extends Component {
 
     crearPost() {
         const email = auth.currentUser.email;
-        const { description, username } = this.state;
+        const { description } = this.state;
 
         if (
             email &&
@@ -53,7 +53,7 @@ class CrearPost extends Component {
                 <TextInput
                     value={this.state.description}
                     onChangeText={(text) => this.setState({ description: text })}
-                    placeholder="Crea tu posteo:"
+                    placeholder="Crea tu posteo"
                 />
                 
     
