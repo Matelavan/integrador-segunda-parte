@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import { auth, db } from '../firebase/config'
 import Post from '../components/Post';
 
@@ -43,7 +43,7 @@ class MiPerfil extends Component {
     }
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text>{this.state.datosUsuario.nombre}</Text>
                 <Text>{this.state.datosUsuario.mail}</Text>
                 <FlatList
@@ -59,3 +59,12 @@ class MiPerfil extends Component {
     }
 }
 export default MiPerfil;
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#fff',
+  },
+});
