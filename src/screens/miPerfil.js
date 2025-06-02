@@ -27,6 +27,9 @@ class MiPerfil extends Component {
                         data: doc.data()
                     })
                 })
+
+                posts.sort((a, b) => b.data.createdAt - a.data.createdAt)
+
                 this.setState({posteos: posts})
             }
         )

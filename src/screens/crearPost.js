@@ -36,14 +36,15 @@ class CrearPost extends Component {
                 
                 })
                 .then(() => {
-                    this.props.navigation.navigate('Tab');
+                    this.props.navigation.navigate('home');
                 })
                 .catch(err=> console.log('err:', err));
         }
     }
+    
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <TextInput
                     value={this.state.description}
                     onChangeText={(text) => this.setState({ description: text })}
@@ -57,7 +58,17 @@ class CrearPost extends Component {
             </View>
         )
     }
+    
 }
 
 export default CrearPost;
 
+const styles = StyleSheet.create({
+    container: {
+     justifyContent: 'space-between',
+     backgroundColor: 'rgba(255,0,0,0.5)',
+     alignItems: 'center',
+     fontSize: 160,
+   },
+ }) 
+ 

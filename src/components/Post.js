@@ -33,6 +33,7 @@ class Post extends Component {
     }
     Likear() {
         if (this.state.userLiked) {
+            console.log('ejecuta el if')
             db.collection('posts').doc(this.props.postId).update({ likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
                 })
                 .then(() => this.setState({
@@ -44,13 +45,15 @@ class Post extends Component {
                 )
                 .catch(e => console.log(e))
         }else {
+            console.log('ejecuta el else')
+
             db.collection('posts').doc(this.props.postId).update({ likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
                 })
                 .then(() => this.setState({
                     userLiked: true,
                     label: 'No me gusta',
-                    likes: this.state.likes.push(auth.currentUser.email)
-                }))
+                    likes: this.state.likes.concat(auth.currentUser.email)
+                }, ()=> console.log('el estado desopues de dar like', this.state)))
                 .catch(e => console.log(e))
         }
 
