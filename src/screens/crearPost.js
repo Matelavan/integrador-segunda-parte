@@ -36,6 +36,7 @@ class CrearPost extends Component {
                 
                 })
                 .then(() => {
+                    this.setState({ description: '' });
                     this.props.navigation.navigate('home');
                 })
                 .catch(err=> console.log('err:', err));
@@ -44,15 +45,13 @@ class CrearPost extends Component {
     
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.container}>               
                  <View style={styles.box}>
                 <TextInput style={styles.input}
                     value={this.state.description}
                     onChangeText={(text) => this.setState({ description: text })}
                     placeholder="Crea tu posteo"
                 />
-                
-    
                 <TouchableOpacity style={styles.button} onPress={() => this.crearPost()}>
                     <Text style={styles.buttonText}>Crear Post</Text>
                 </TouchableOpacity>

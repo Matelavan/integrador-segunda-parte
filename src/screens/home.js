@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { onSnapshot, collection, query, orderBy, updateDoc, doc } from 'firebase/firestore';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import { db } from '../firebase/config';
 import Post from '../components/Post';
 
@@ -9,34 +8,42 @@ class Home extends Component {
     super(props);
     this.state = {
       posts: [],
-
+      loading: true, // Inicialmente true
     };
   }
-  //checkear el posts es igual que la fb y el createdAt es igual que el de la fb
-  componentDidMount() {
-    db.collection('posts').orderBy('createdAt', 'desc').onSnapshot(docs => {
-      let posts = [];
-      docs.forEach(doc => {
-        posts.push({
-          id: doc.id,
-          data: doc.data()
-        })
-      })
-      this.setState({
-        posts: posts,
-       })
-    })
 
+  componentDidMount() {
+    db.collection('posts')
+      .orderBy('createdAt', 'desc')
+      .onSnapshot(docs => {
+        let posts = [];
+        docs.forEach(doc => {
+          posts.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        this.setState({
+          posts: posts,
+          loading: false,
+        });
+      });
   }
+
   render() {
     return (
       <View style={styles.container}>
-        <FlatList
-          data={this.state.posts}
-          keyExtractor={(item) => item.id}
-          renderItem= {({item}) => <Post post={item.data} postId={item.id} miPerfil={false} />}
-          
-        />
+        {this.state.loading ? (
+          <ActivityIndicator size="large" color="green" />
+        ) : (
+          <FlatList
+            data={this.state.posts}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Post post={item.data} postId={item.id} miPerfil={false} />
+            )}
+          />
+        )}
       </View>
     );
   }

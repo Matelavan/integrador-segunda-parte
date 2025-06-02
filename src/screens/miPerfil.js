@@ -55,6 +55,7 @@ class MiPerfil extends Component {
                     data={this.state.posteos}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({item}) => <Post perfil={true} borrarPosteo={(idPosteo) => this.borrarPosteo(idPosteo)} post={item.data} id={item.id}/>}
+                    
                 />
                 <TouchableOpacity style={styles.logoutButton} onPress={() => this.logout()}>
                     <Text style={styles.logoutButtonText}>Cerrar sesion</Text>
